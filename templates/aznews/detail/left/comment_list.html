@@ -1,0 +1,28 @@
+{% load static %}
+<div class="comments-area">
+    <h4>{{ post.comment_set.count }} Comments</h4>
+    {% for comment in post.comment_set.all %}
+    <div class="comment-list">
+        <div class="single-comment justify-content-between d-flex">
+            <div class="user justify-content-between d-flex">
+                <div class="thumb">
+                    <img src="{% static 'aznews/assets/img/comment/comment_1.png' %}" alt="{{ comment.name }}">
+                </div>
+                <div class="desc">
+                    <p class="comment">
+                        {{ comment.comment }}
+                    </p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h5>
+                                <a href="#">{{ comment.name }}</a>
+                            </h5>
+                            <p class="date">{{comment.created_at }} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>

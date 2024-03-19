@@ -1,0 +1,33 @@
+{% load static %}
+
+<div class="recent-articles">
+    <div class="container">
+        <div class="recent-wrapper">
+            <!-- section Tittle -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle mb-30">
+                        <h3>Recent Articles</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="recent-active dot-style d-flex dot-style">
+                        {% for recent_post in recent_posts %}
+                        <div class="single-recent mb-100">
+                            <div class="what-img">
+                                <img src="{{ recent_post.featured_image.url }}" alt="{{ recent_post.title }}">
+                            </div>
+                            <div class="what-cap">
+                                <span class="color1">{{ recent_post.category.name }}</span>
+                                <h4><a href="#">{{ recent_post.title }}</a></h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
